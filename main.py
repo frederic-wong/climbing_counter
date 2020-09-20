@@ -18,7 +18,7 @@ def scrape_data(url):
     count = AAA[1].rsplit(',')[0][3:]
 
     #get the current timestamp for the data
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 
     # write to csv
     with open('climbers.csv', 'a+', newline='') as file:
