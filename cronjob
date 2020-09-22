@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+home=/path/to/file
+table_name=table_name
+
+rm $home/last_line.csv && tail -1 $home/climbers.csv >> $home/last_line.csv
+
+cd $home && /usr/bin/python3 $home/main.py
+
+psql -d postgres -c "COPY $table_name FROM '$home/last_line.csv' delimiter ',' csv;"
